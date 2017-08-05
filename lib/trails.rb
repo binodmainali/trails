@@ -1,6 +1,8 @@
 require "trails/version"
 require "trails/array"
 require "trails/routing"
+require "trails/util"
+require "trails/dependencies"
 
 module Trails
   class Application
