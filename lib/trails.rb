@@ -18,14 +18,8 @@ module Trails
       begin
         body = controller.send(action)
         [200, {'Content-Type' => 'text/html'}, [body] ]
-      rescue
-        body = "
-          <div>
-            <h1>Oops!</h1>
-            <h2>We could't find the page <br>you were looking for.</h2>
-            <p>You may have mistyped the address or the page may have moved.</p>
-          </div>"
-        [200, {'Content-Type' => 'text/html'}, [body] ]
+      rescue Exception => e
+        [200, {'Content-Type' => 'text/html'}, [e] ]
       end
     end
   end

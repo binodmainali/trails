@@ -14,7 +14,9 @@ module Trails
       filename = File.join "app", "views", controller_name, "#{view_name}.html.erb"
       template = File.read filename
       eruby = Erubis::Eruby.new(template)
-      eruby.result locals.merge(:env => env)
+      klass = self.class
+      klass.instance_variable_set(:@req_start_time, Time.now)
+      eruby.result locals.merge(:env => env, :start_time => klass.instance_variable_get(:@req_start_time))
     end
 
     def controller_name

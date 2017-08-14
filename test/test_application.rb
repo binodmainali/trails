@@ -1,5 +1,14 @@
 require_relative "test_helper"
 class TestApp < Trails::Application
+  def get_controller_and_action(env)
+    [TestController, "index"]
+  end
+end
+
+class TestController < Trails::Controller
+  def index
+    "Hello! from controller test"
+  end
 end
 
 class TrailsAppTest < Test::Unit::TestCase
@@ -10,10 +19,10 @@ class TrailsAppTest < Test::Unit::TestCase
   end
 
   def test_request
-    get "/"
+    get "/test/index"
     assert last_response.ok?
     body = last_response.body
-    assert body["Lets"]
+    assert body["Hello!"]
   end
 
   def test_url
