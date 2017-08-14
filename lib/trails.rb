@@ -4,6 +4,7 @@ require "trails/routing"
 require "trails/util"
 require "trails/dependencies"
 require "trails/controller"
+require "trails/file_model"
 
 module Trails
   class Application

@@ -1,7 +1,9 @@
 require 'erubis'
+require 'trails/file_model'
 
 module Trails
   class Controller
+    include Trails::Model
     def initialize(env)
        @env = env
     end
