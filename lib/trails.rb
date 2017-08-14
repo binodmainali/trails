@@ -3,6 +3,7 @@ require "trails/array"
 require "trails/routing"
 require "trails/util"
 require "trails/dependencies"
+require "trails/controller"
 
 module Trails
   class Application
@@ -26,16 +27,6 @@ module Trails
           </div>"
         [200, {'Content-Type' => 'text/html'}, [body] ]
       end
-    end
-  end
-
-  class Controller
-    def initialize(env)
-      @env = env
-    end
-
-    def env
-      @env
     end
   end
 end
